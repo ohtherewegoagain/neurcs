@@ -1,124 +1,143 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NEURCS | Beta Now Live</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
-    body {
-      font-family: 'Space Grotesk', sans-serif;
-      background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
-      color: #e0e0e0;
-      padding: 2rem;
-    }
+export default function BetaSignup() {
+  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '' });
 
-    header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-    .logo {
-      font-size: 3rem;
-      font-weight: 700;
-      background: linear-gradient(90deg, #00f0ff, #8a2be2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    setSubmitted(true);
+  };
 
-    .tagline {
-      font-size: 1.2rem;
-      color: #cccccc;
-      margin-top: 0.5rem;
-    }
+  return (
+    <main className="min-h-screen bg-black text-white font-sans">
+      <header className="flex justify-center py-10">
+        <img src="/images/neurcs-logo.png" alt="NEURCS Logo" className="w-40" />
+      </header>
 
-    .section {
-      margin-bottom: 2.5rem;
-      padding: 1.5rem;
-      background: linear-gradient(145deg, #1f1f1f, #2c2c2c);
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
-    }
+      <section className="px-6 py-16 bg-gradient-to-br from-gray-900 to-gray-800 text-center">
+        <motion.h1 
+          initial={{ opacity: 0, y: -20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.6 }} 
+          className="text-5xl font-extrabold mb-4">
+          Discover NEURCS
+        </motion.h1>
+        <p className="max-w-2xl mx-auto text-white/80 text-lg">
+          An AI-powered brain wellness copilot built in collaboration with Yale School of Medicine. Reclaim your focus, balance your dopamine, and sleep better — starting today.
+        </p>
+      </section>
 
-    .section h2 {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-      background: linear-gradient(90deg, #00ffff, #ff00ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+      <section className="px-6 py-16 bg-gradient-to-r from-slate-900 to-slate-700">
+        <h2 className="text-4xl font-bold mb-4 text-center">What We Do</h2>
+        <p className="max-w-3xl mx-auto text-white/90 text-lg">
+          NEURCS monitors real-time screen behavior, detects neural triggers, and delivers adaptive interventions. Our system includes modules for emotional state prediction, attention drift tracking, synchronized screen breaks, and sleep optimization.
+        </p>
+      </section>
 
-    .section p {
-      line-height: 1.7;
-      font-size: 1rem;
-    }
+      <section className="px-6 py-16 bg-gradient-to-br from-purple-900 to-violet-800">
+        <h2 className="text-4xl font-bold mb-6 text-center">Why It Matters</h2>
+        <div className="max-w-2xl mx-auto space-y-2 text-lg">
+          <ul className="list-disc list-inside text-white/90">
+            <li>Teen anxiety has surged by 35% (CDC)</li>
+            <li>70% of adolescents report sleep problems</li>
+            <li>Attention spans have dropped below 8 seconds</li>
+            <li>1 in 3 teens is digitally dependent</li>
+          </ul>
+        </div>
+      </section>
 
-    .cta {
-      text-align: center;
-      margin-top: 4rem;
-    }
+      <section className="px-6 py-16 bg-gradient-to-r from-rose-900 to-pink-800">
+        <h2 className="text-4xl font-bold mb-6 text-center">Beta Traction</h2>
+        <div className="max-w-3xl mx-auto overflow-x-auto">
+          <table className="w-full text-left border-collapse text-white/90">
+            <thead>
+              <tr className="bg-white/20">
+                <th className="p-3">Metric</th>
+                <th className="p-3">Result</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="odd:bg-white/10">
+                <td className="p-3">Users in Beta</td>
+                <td className="p-3">500</td>
+              </tr>
+              <tr className="odd:bg-white/10">
+                <td className="p-3">Avg. Sleep Increase</td>
+                <td className="p-3">+49 minutes</td>
+              </tr>
+              <tr className="odd:bg-white/10">
+                <td className="p-3">Screen Time Reduction</td>
+                <td className="p-3">−34%</td>
+              </tr>
+              <tr className="odd:bg-white/10">
+                <td className="p-3">Anxiety Drop (GAD7)</td>
+                <td className="p-3">−24%</td>
+              </tr>
+              <tr className="odd:bg-white/10">
+                <td className="p-3">Weekly Active Users</td>
+                <td className="p-3">81%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-    .cta button {
-      background: linear-gradient(90deg, #00f0ff, #8a2be2);
-      color: white;
-      border: none;
-      padding: 1rem 2rem;
-      font-size: 1rem;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
+      <section className="px-6 py-16 bg-gradient-to-r from-gray-800 to-gray-700">
+        <h2 className="text-4xl font-bold mb-6 text-center">Investor Interest</h2>
+        <p className="max-w-2xl mx-auto text-white/80 text-lg text-center">
+          We’re in early discussions with top-tier investors across digital wellness, neuroscience, and health AI. Backed by clinical research and strong beta traction, NEURCS is positioned to scale.
+        </p>
+      </section>
 
-    .cta button:hover {
-      background: linear-gradient(90deg, #8a2be2, #00f0ff);
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="logo">NEURCS</div>
-    <div class="tagline">Sleep Better. Scroll Smarter. Beta Version Now Live 🧠✨</div>
-  </header>
+      <section id="signup" className="px-6 py-16 bg-gradient-to-r from-zinc-900 to-zinc-700">
+        <div className="max-w-md mx-auto bg-zinc-800/70 backdrop-blur rounded-xl p-8 shadow-xl">
+          <h2 className="text-3xl font-bold mb-6 text-center">Sign Up for the Beta</h2>
+          {!submitted ? (
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required
+                onChange={handleChange}
+                className="w-full p-3 rounded-xl bg-white/10 placeholder-white/60 text-white focus:outline-none focus:ring-2 focus:ring-violet-400"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                required
+                onChange={handleChange}
+                className="w-full p-3 rounded-xl bg-white/10 placeholder-white/60 text-white focus:outline-none focus:ring-2 focus:ring-violet-400"
+              />
+              <button
+                type="submit"
+                className="w-full py-3 bg-gradient-to-r from-fuchsia-600 to-violet-600 hover:from-fuchsia-700 hover:to-violet-700 text-white font-semibold rounded-xl shadow-lg transition"
+              >
+                Join the Beta
+              </button>
+            </form>
+          ) : (
+            <div className="bg-white/10 p-6 rounded-2xl shadow-xl text-center">
+              <h2 className="text-2xl font-semibold mb-2">You're In! 🎉</h2>
+              <p className="text-white/80">
+                We'll notify you when you're approved for the NEURCS beta. Stay tuned!
+              </p>
+            </div>
+          )}
+        </div>
+      </section>
 
-  <div class="section">
-    <h2>What is NEURCS?</h2>
-    <p>
-      NEURCS (Neuro-Cognitive Real-Time Synthesis) is an AI-powered wellness companion designed for teens and young adults to help them build healthier screen habits, boost mood, and improve sleep.
-    </p>
-  </div>
-
-  <div class="section">
-    <h2>Why It Matters</h2>
-    <p>
-      The dopamine-driven design of modern apps disrupts natural sleep cycles, damages focus, and spikes anxiety. NEURCS uses neuroscience + real-time interventions to flip the script.
-    </p>
-  </div>
-
-  <div class="section">
-    <h2>Beta Highlights</h2>
-    <p>
-      ✅ 500 users onboarded<br/>
-      ✅ Avg. screen time dropped by 35%<br/>
-      ✅ PHQ-9 scores improved by 4.5 pts<br/>
-      ✅ 89% of users want to keep using NEURCS even post beta<br/>
-    </p>
-  </div>
-
-  <div class="section">
-    <h2>How it Works</h2>
-    <p>
-      We combine LSTM-powered mood prediction, IoT sleep lighting, personalized nudges, and a unique Dopamine Index to transform how tech interacts with your brain.
-    </p>
-  </div>
-
-  <div class="cta">
-    <button>🚀 Join the Beta</button>
-  </div>
-</body>
-</html>
+      <footer className="text-center py-10 text-white/50 text-sm">
+        &copy; {new Date().getFullYear()} NEURCS. All rights reserved.
+      </footer>
+    </main>
+  );
+}
