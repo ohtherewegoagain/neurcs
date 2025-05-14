@@ -4,16 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NEURCS Beta Signup</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-black text-white font-sans">
 
-  <!-- Logo Header -->
-  <header class="flex justify-center py-10">
-    <img src="/images/neurcs-logo.png" alt="NEURCS Logo" class="w-40">
+  <!-- Header -->
+  <header class="flex justify-center py-10 bg-black">
+    <img src="/images/neurcs-logo.png" alt="NEURCS Logo" class="w-40" />
   </header>
 
-  <!-- Hero Section -->
+  <!-- Discover NEURCS -->
   <section class="px-6 py-16 bg-gradient-to-br from-gray-900 to-gray-800 text-center">
     <h1 class="text-5xl font-extrabold mb-4">Discover NEURCS</h1>
     <p class="max-w-2xl mx-auto text-white/80 text-lg">
@@ -32,7 +32,7 @@
   <!-- Why It Matters -->
   <section class="px-6 py-16 bg-gradient-to-br from-purple-900 to-violet-800 text-center">
     <h2 class="text-4xl font-bold mb-6">Why It Matters</h2>
-    <ul class="max-w-2xl mx-auto list-disc list-inside text-white/90 text-lg space-y-1">
+    <ul class="max-w-xl mx-auto text-white/90 list-disc list-inside text-lg text-left">
       <li>Teen anxiety has surged by 35% (CDC)</li>
       <li>70% of adolescents report sleep problems</li>
       <li>Attention spans have dropped below 8 seconds</li>
@@ -41,22 +41,37 @@
   </section>
 
   <!-- Beta Traction -->
-  <section class="px-6 py-16 bg-gradient-to-r from-rose-900 to-pink-800">
-    <h2 class="text-4xl font-bold mb-6 text-center">Beta Traction</h2>
+  <section class="px-6 py-16 bg-gradient-to-r from-rose-900 to-pink-800 text-center">
+    <h2 class="text-4xl font-bold mb-6">Beta Traction</h2>
     <div class="max-w-3xl mx-auto overflow-x-auto">
-      <table class="w-full text-left border-collapse text-white/90">
+      <table class="w-full text-left border-collapse text-white/90 rounded-lg overflow-hidden">
         <thead>
-          <tr class="bg-white/20">
+          <tr class="bg-white/20 text-white">
             <th class="p-3">Metric</th>
             <th class="p-3">Result</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="odd:bg-white/10"><td class="p-3">Users in Beta</td><td class="p-3">500</td></tr>
-          <tr class="odd:bg-white/10"><td class="p-3">Avg. Sleep Increase</td><td class="p-3">+49 minutes</td></tr>
-          <tr class="odd:bg-white/10"><td class="p-3">Screen Time Reduction</td><td class="p-3">−34%</td></tr>
-          <tr class="odd:bg-white/10"><td class="p-3">Anxiety Drop (GAD7)</td><td class="p-3">−24%</td></tr>
-          <tr class="odd:bg-white/10"><td class="p-3">Weekly Active Users</td><td class="p-3">81%</td></tr>
+          <tr class="odd:bg-white/10">
+            <td class="p-3">Users in Beta</td>
+            <td class="p-3">500</td>
+          </tr>
+          <tr class="odd:bg-white/10">
+            <td class="p-3">Avg. Sleep Increase</td>
+            <td class="p-3">+49 minutes</td>
+          </tr>
+          <tr class="odd:bg-white/10">
+            <td class="p-3">Screen Time Reduction</td>
+            <td class="p-3">−34%</td>
+          </tr>
+          <tr class="odd:bg-white/10">
+            <td class="p-3">Anxiety Drop (GAD7)</td>
+            <td class="p-3">−24%</td>
+          </tr>
+          <tr class="odd:bg-white/10">
+            <td class="p-3">Weekly Active Users</td>
+            <td class="p-3">81%</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -70,11 +85,11 @@
     </p>
   </section>
 
-  <!-- Signup Section -->
+  <!-- Signup Form -->
   <section id="signup" class="px-6 py-16 bg-gradient-to-r from-zinc-900 to-zinc-700">
     <div class="max-w-md mx-auto bg-zinc-800/70 backdrop-blur rounded-xl p-8 shadow-xl">
       <h2 class="text-3xl font-bold mb-6 text-center">Sign Up for the Beta</h2>
-      <form action="#" method="POST" class="space-y-4">
+      <form class="space-y-4">
         <input
           type="text"
           name="name"
